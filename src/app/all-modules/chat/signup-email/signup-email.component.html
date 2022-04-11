@@ -22,9 +22,9 @@
 								<form class="form" [formGroup]="form" (ngSubmit)="register()" name="form" #f="ngForm">
 									<div class="form-group">
 	                                    <label>First Name</label>
-	                                    <input [ngClass]="{ 'is-invalid': submitted && form.get('firstname').invalid && form.get('firstname').errors }" class="form-control form-control-lg group_formcontrol" name="firstname" type="text" formControlName="firstname">
-										<div *ngIf="submitted && form.get('firstname').invalid && form.get('firstname').errors" class="invalid-feedback">
-											<div *ngIf="form.get('firstname').invalid && form.get('firstname').errors['required']">Last name is required</div>
+	                                    <input [ngClass]="{ 'is-invalid': submitted && form.get('firstName').invalid && form.get('firstName').errors }" class="form-control form-control-lg group_formcontrol" name="firstName" type="text" formControlName="firstName">
+										<div *ngIf="submitted && form.get('firstName').invalid && form.get('firstName').errors" class="invalid-feedback">
+											<div *ngIf="form.get('firstName').invalid && form.get('firstName').errors['required']">Last name is required</div>
 										</div>
 									</div>
 									<div class="form-group">
@@ -64,17 +64,25 @@
 										  <div *ngIf="form.get('confirmPassword').errors['required']">
 											Confirm Password is required
 										  </div>
-										  <div *ngIf="form.get('confirmPassword').errors['matching']">
+										  <div *ngIf="form.get('confirmPassword').errors['mustMatch']">
 											Confirm Password does not match
 										  </div>
 										</div>
-									  </div>
-	                                <div class="form-group">
-	                                	<label class="custom-check d-flex flex-wrap">
-	                                        <input [ngClass]="{ 'is-invalid': submitted && form.get('acceptTerms').errors }"  type="checkbox" name="acceptTerms" formControlName="acceptTerms">I agreed to all the <a data-bs-toggle="modal" data-bs-target="#terms"> Terms & Conditions,</a><a>Privacy Policy.</a>
-	                                        <span class="checkmark"></span>
-	                                    </label>
-	                                </div>
+									</div>
+									<div class="form-group form-check">
+										<input
+										  type="checkbox"
+										  formControlName="acceptTerms"
+										  class="form-check-input"
+										  [ngClass]="{ 'is-invalid': submitted && form.get('acceptTerms').errors }"
+										/>
+										<label for="acceptTerms" class="form-check-label custom-check d-flex flex-wrap"
+										  >I agreed to all the <a data-bs-toggle="modal" data-bs-target="#terms"> Terms & Conditions,</a><a>Privacy Policy.</a></label
+										>
+										<div *ngIf="submitted && form.get('acceptTerms').errors" class="invalid-feedback">
+										  Accept Terms is required
+										</div>
+									</div>
 	                                <div class="pt-1">
 	                                	<div class="text-center">
 	                                     	<button class="btn newgroup_create w-100 d-block w-100" type="submit">Create Account</button>
