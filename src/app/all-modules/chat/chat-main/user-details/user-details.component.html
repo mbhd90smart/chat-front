@@ -1,0 +1,176 @@
+<!-- Right sidebar -->
+<div class="right-sidebar right_sidebar_profile" id="middle1">
+    <div class="right-sidebar-wrap active">
+    <div class="slimscroll">
+            <div class="left-chat-title d-flex justify-content-between align-items-center p-3">
+                <div class="chat-title">
+                    <h4>PROFILE</h4>
+                </div>
+                <div class="contact-close_call text-end">
+                    <a
+                        class="close_profile close_profile4">
+                        <span class="material-icons">close</span>
+                    </a>
+                </div>
+            </div>
+            <div class="sidebar-body">
+                <div class="mt-0 right_sidebar_logo">
+                    <div class="text-center mb-2 right-sidebar-profile">
+                        <figure class="avatar avatar-xl mb-3">
+                            <img src="assets/img/avatar/avatar-2.jpg" class="rounded-circle" alt="image">
+                        </figure>
+                        <h5 class="profile-name">{{user.username}}</h5>
+                        <div class="{{getStatues()}}-profile">
+                            <span>{{getStatues()}}</span>
+                        </div>
+                    </div>
+                    <div>
+                            <div class="about-media-tabs">       
+                            <nav>
+                                <div class="nav nav-tabs justify-content-center" id="nav-tab">
+                                    <a class="nav-item nav-link active" id="nav-home-tab" data-bs-toggle="tab" href="#about">About</a>
+                                    <a class="nav-item nav-link" id="nav-profile-tab" data-bs-toggle="tab" href="#media" >Media</a>
+                                </div>
+                            </nav>
+                            <div class="tab-content" id="nav-tabContent">
+                                <div class="tab-pane fade show active" id="about">
+                                    <p>{{user.description}}</p>
+                                    <div class="member-details">
+                                        <ul>
+                                            <li>
+                                                <h6>Phone</h6>
+                                                <span>{{user.phone}}</span>
+                                            </li>
+                                            <li>
+                                                <h6>Nick Name</h6>
+                                                <span>{{user.name}}</span>
+                                            </li>
+                                            <li>
+                                                <h6>Email</h6>
+                                                <span>{{user.email}}</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="settings-col">
+                                        <h6>Settings</h6>
+                                        <ul>
+                                            <li class="d-flex align-items-center">
+                                                <label class="switch">
+                                                    <input type="checkbox" [checked]="userSetting.lock">
+                                                    <span class="slider round"></span>
+                                                </label>
+                                                <div>
+                                                    <span>Block</span>
+                                                </div>
+                                            </li>
+                                            <li class="d-flex align-items-center">
+                                                <label class="switch">
+                                                    <input type="checkbox" [checked]="userSetting.mute">
+                                                    <span class="slider round"></span>
+                                                </label>
+                                                <div>
+                                                    <span>Mute</span>
+                                                </div>
+                                            </li>
+                                            <li class="d-flex align-items-center">
+                                                <label class="switch">
+                                                    <input type="checkbox" [checked]="userSetting.notification">
+                                                    <span class="slider round"></span>
+                                                </label>
+                                                <div>
+                                                    <span>Get notification</span>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="media">
+                                    <div class="file-download-col">
+                                        <ul>
+                                            <li>
+                                                <div class="image-download-col">
+                                                    <a href="assets/img/chat-download.jpg" data-fancybox="gallery" class="fancybox">
+                                                        <img src="assets/img/chat-download.jpg" alt="">
+                                                    </a>
+                                                    <div class="download-action d-flex align-items-center">
+                                                        <div><a><i class="fas fa-cloud-download-alt"></i></a></div>
+                                                        <div><a><i class="fas fa-ellipsis-h"></i></a></div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="image-download-col">
+                                                    <a href="assets/img/chat-download.jpg" data-fancybox="gallery" class="fancybox">
+                                                        <img src="assets/img/chat-download.jpg" alt="">
+                                                    </a>
+                                                    <div class="download-action d-flex align-items-center">
+                                                        <div><a><i class="fas fa-cloud-download-alt"></i></a></div>
+                                                        <div><a><i class="fas fa-ellipsis-h"></i></a></div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                                <li>
+                                                <div class="image-download-col">
+                                                    <a href="assets/img/chat-download.jpg" data-fancybox="gallery" class="fancybox">
+                                                        <img src="assets/img/chat-download.jpg" alt="">
+                                                    </a>
+                                                    <div class="download-action d-flex align-items-center">
+                                                        <div><a><i class="fas fa-cloud-download-alt"></i></a></div>
+                                                        <div><a><i class="fas fa-ellipsis-h"></i></a></div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="image-download-col">
+                                                    <a href="assets/img/chat-download.jpg" data-fancybox="gallery" class="fancybox">
+                                                        <img src="assets/img/chat-download.jpg" alt="">
+                                                    </a>
+                                                    <div class="download-action d-flex align-items-center">
+                                                        <div><a><i class="fas fa-cloud-download-alt"></i></a></div>
+                                                        <div><a><i class="fas fa-ellipsis-h"></i></a></div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                                <li>
+                                                <div class="image-download-col">
+                                                    <a href="assets/img/chat-download.jpg" data-fancybox="gallery" class="fancybox">
+                                                        <img src="assets/img/chat-download.jpg" alt="">
+                                                    </a>
+                                                    <div class="download-action d-flex align-items-center">
+                                                        <div><a><i class="fas fa-cloud-download-alt"></i></a></div>
+                                                        <div><a><i class="fas fa-ellipsis-h"></i></a></div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="image-download-col">
+                                                    <a href="assets/img/chat-download.jpg" data-fancybox="gallery" class="fancybox">
+                                                        <img src="assets/img/chat-download.jpg" alt="">
+                                                    </a>
+                                                    <div class="download-action d-flex align-items-center">
+                                                        <div><a><i class="fas fa-cloud-download-alt"></i></a></div>
+                                                        <div><a><i class="fas fa-ellipsis-h"></i></a></div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="full-width text-center">
+                                                <a class="load-more-btn">More 154 Files <i class="fas fa-sort-down"></i></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="report-col">
+                <ul>
+                    <li><a><span class="material-icons">report_problem</span> Report Chat</a></li>
+                    <li><a><span><i class="far fa-trash-alt"></i></span> Delete Chat</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Right sidebar -->

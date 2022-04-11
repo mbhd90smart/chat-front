@@ -1,0 +1,8 @@
+
+<!-- Main Wrapper -->
+<div [ngClass]="getClass()">
+<app-header *ngIf = "show"></app-header>
+<app-sidebar *ngIf = "show"></app-sidebar>
+<router-outlet></router-outlet>
+</div>
+<!-- /Main Wrapper -->

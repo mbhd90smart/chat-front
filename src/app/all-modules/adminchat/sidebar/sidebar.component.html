@@ -1,0 +1,90 @@
+<!-- Sidebar -->
+            <div class="sidebar" id="sidebar">
+                <div class="sidebar-inner slimscroll">
+                	 <perfect-scrollbar [scrollIndicators]="false">
+					<div id="sidebar-menu" class="sidebar-menu">
+						<ul>
+							<li class="menu-title"> 
+							</li>
+							<li [ngClass]="[active2Route === 'dashboard' ? 'active' : '']"> 
+								<a routerLink = "/admin/dashboard" (click)= "setActive()"><i class="fe fe-home"></i> <span>Dashboard</span></a>
+							</li>
+							<li class="submenu">
+								<a href="javascript:void(0);"><i class="fe fe-users"></i> <span> Users</span> <span class="menu-arrow"></span></a>
+								<ul style="display: none;">
+									<li ><a [ngClass]="[active2Route === 'user' ? 'active' : '']" routerLink = "/admin/user">Users</a></li>
+									<li ><a [ngClass]="[active2Route === 'blockeduser' ? 'active' : '']" routerLink = "/admin/blockeduser">Blocked User</a></li>
+									<li ><a [ngClass]="[active2Route === 'reportuser' ? 'active' : '']" routerLink = "/admin/reportuser">Report User</a></li>
+								</ul>
+							</li>
+							<li class="submenu">
+								<a href="javascript:void(0);"><i class="fe fe-sync"></i> <span> History </span> <span class="menu-arrow"></span></a>
+								<ul style="display: none;">
+									<li><a [ngClass]="[active2Route === 'callhistory' ? 'active' : '']" routerLink = "/admin/callhistory"> Call History </a></li>
+									<li><a [ngClass]="[active2Route === 'grouphistory' ? 'active' : '']" routerLink = "/admin/grouphistory"> Group History </a></li>
+								</ul>
+							</li>
+							<li class="submenu">
+								<a href="javascript:void(0);"><i class="fe fe-gear"></i> <span> Settings </span> <span class="menu-arrow"></span></a>
+								<ul style="display: none;">
+									<li><a [ngClass]="[active2Route === 'general' ? 'active' : '']" routerLink = "/admin/general">General</a></li>
+									<li><a [ngClass]="[active2Route === 'admob' ? 'active' : '']" routerLink = "/admin/admob">Admob </a></li>
+									<li><a [ngClass]="[active2Route === 'sinchsettings' ? 'active' : '']" routerLink = "/admin/sinchsettings">Sinch Settings </a></li>
+									<li><a [ngClass]="[active2Route === 'firebasesettings' ? 'active' : '']" routerLink = "/admin/firebasesettings">Firebase Settings </a></li>
+								</ul>
+							</li>
+							<li [ngClass]="[active2Route === 'blankpage' ? 'active' : '']"> 
+								<a routerLink = "/admin/blankpage" (click)= "setActive()"><i class="fe fe-file"></i> <span>Blank Page</span></a>
+							</li>
+							<li [ngClass]="[active2Route === 'vectormaps' ? 'active' : '']"> 
+								<a routerLink = "/admin/vectormaps"><i class="fe fe-map"></i> <span>Vector Maps</span></a>
+							</li>
+							<li [ngClass]="[active2Route === 'components' ? 'active' : '']"> 
+								<a routerLink = "/admin/components"><i class="fe fe-vector"></i> <span>Components</span></a>
+							</li>
+							<li class="submenu">
+								<a href="javascript:void(0);"><i class="fe fe-layout"></i> <span> Forms </span> <span class="menu-arrow"></span></a>
+								<ul style="display: none;">
+									<li><a [ngClass]="[active2Route === 'formbasicinputs' ? 'active' : '']" routerLink = "/admin/formbasicinputs">Basic Inputs</a></li>
+									<li><a [ngClass]="[active2Route === 'forminputgroups' ? 'active' : '']" routerLink = "/admin/forminputgroups">Input Groups</a></li>
+									<li><a [ngClass]="[active2Route === 'formhorizontal' ? 'active' : '']" routerLink = "/admin/formhorizontal">Horizontal Form</a></li>
+									<li><a [ngClass]="[active2Route === 'formvertical' ? 'active' : '']" routerLink = "/admin/formvertical">Vertical Form </a></li>
+									<li><a [ngClass]="[active2Route === 'formmask' ? 'active' : '']" routerLink = "/admin/formmask">Form Mask</a></li>
+									<li><a [ngClass]="[active2Route === 'formvalidation' ? 'active' : '']" routerLink = "/admin/formvalidation">Form Validation  </a></li>
+								</ul>
+							</li>
+							<li class="submenu">
+								<a href="javascript:void(0);"><i class="fe fe-table"></i> <span> Tables <span class="menu-arrow"></span></span></a>
+								<ul style="display: none;">
+									<li><a [ngClass]="[active2Route === 'tablesbasic' ? 'active' : '']" routerLink = "/admin/tablesbasic">Basic Tables </a></li>
+									<li><a [ngClass]="[active2Route === 'datatables' ? 'active' : '']" routerLink = "/admin/datatables">Data Table </a></li>
+								</ul>
+							</li>
+							<li class="submenu">
+								<a href="javascript:void(0);"><i class="fe fe-code"></i> <span>Multi Level</span> <span class="menu-arrow"></span></a>
+								<ul style="display: none;">
+									<li class="submenu">
+										<a href="javascript:void(0);"> <span>Level 1</span> <span class="menu-arrow"></span></a>
+										<ul style="display: none;">
+											<li><a href="javascript:void(0);"><span>Level 2</span></a></li>
+											<li class="submenu">
+												<a href="javascript:void(0);"> <span> Level 2</span> <span class="menu-arrow"></span></a>
+												<ul style="display: none;">
+													<li><a href="javascript:void(0);">Level 3</a></li>
+													<li><a href="javascript:void(0);">Level 3</a></li>
+												</ul>
+											</li>
+											<li><a href="javascript:void(0);"> <span>Level 2</span></a></li>
+										</ul>
+									</li>
+									<li>
+										<a href="javascript:void(0);"> <span>Level 1</span></a>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+					</perfect-scrollbar>
+                </div>
+            </div>
+			<!-- /Sidebar -->
