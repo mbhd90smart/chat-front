@@ -19,30 +19,59 @@
 									<h3>Sign up</h3>
 									<p>Lets get you all setup so you can verify your oersonal account and begin setting up your Profile.</p>
 								</div>
-								<form action="/chat/chat-main">
-	                                <div class="form-group">
+								<form class="form" [formGroup]="form" (ngSubmit)="register()" name="form" #f="ngForm">
+									<div class="form-group">
 	                                    <label>First Name</label>
-	                                    <input class="form-control form-control-lg group_formcontrol" name="first-name" type="email">
-	                                </div>
-	                                <div class="form-group">
+	                                    <input [ngClass]="{ 'is-invalid': submitted && form.get('firstname').invalid && form.get('firstname').errors }" class="form-control form-control-lg group_formcontrol" name="firstname" type="text" formControlName="firstname">
+										<div *ngIf="submitted && form.get('firstname').invalid && form.get('firstname').errors" class="invalid-feedback">
+											<div *ngIf="form.get('firstname').invalid && form.get('firstname').errors['required']">Last name is required</div>
+										</div>
+									</div>
+									<div class="form-group">
 	                                    <label>Last Name</label>
-	                                    <input class="form-control form-control-lg group_formcontrol" name="last-name" type="text">
-	                                </div>
-	                                <div class="form-group">
-	                                    <label>Email</label>
-	                                    <input class="form-control form-control-lg group_formcontrol" name="email" type="email">
-	                                </div>
+	                                    <input [ngClass]="{ 'is-invalid': submitted && form.get('lastname').invalid && form.get('lastname').errors }" class="form-control form-control-lg group_formcontrol" name="lastname" type="text" formControlName="lastname">
+										<div *ngIf="submitted && form.get('lastname').invalid && form.get('lastname').errors" class="invalid-feedback">
+											<div *ngIf="form.get('lastname').invalid && form.get('lastname').errors['required']">Last name is required</div>
+										</div>
+									</div>
+									<div class="form-group">
+	                                    <label>Your Email</label>
+	                                    <input [ngClass]="{ 'is-invalid': submitted && form.get('username').invalid && form.get('username').errors }" class="form-control form-control-lg group_formcontrol" name="username" type="email" formControlName="username">
+										<div *ngIf="submitted && form.get('username').invalid && form.get('username').errors" class="invalid-feedback">
+											<div *ngIf="form.get('username').invalid && form.get('username').errors['required']">Email is required</div>
+											<div *ngIf="form.get('username').invalid && form.get('username').errors['email']">Email is invalid</div>
+										</div>
+									</div>
 	                                <div class="form-group">
 	                                    <label>Password</label>
-	                                    <input class="form-control form-control-lg group_formcontrol" name="password" type="password">
-	                                </div>
-	                                <div class="form-group">
-	                                    <label>Confirm Password</label>
-	                                    <input class="form-control form-control-lg group_formcontrol" name="c-password" type="password">
-	                                </div>
+	                                    <input [ngClass]="{ 'is-invalid': submitted && form.get('password').invalid && form.get('password').errors }" class="form-control form-control-lg group_formcontrol" name="password" type="password" formControlName="password">
+										<div *ngIf="submitted && form.get('password').invalid && form.get('password').errors" class="invalid-feedback">
+											<div *ngIf="form.get('password').invalid && form.get('password').errors['required']">Password is required</div>
+											<div *ngIf="form.get('password').invalid && form.get('password').errors['minlength']">
+											  Password must be at least 6 characters
+											</div>
+											<div *ngIf="form.get('password').invalid && form.get('password').errors['maxlength']">
+											  Username must not exceed 40 characters
+											</div>
+										</div>
+									</div>
+									<div class="form-group">
+										<label>Confirm Password</label>
+										<input class="form-control form-control-lg group_formcontrol" [ngClass]="{ 'is-invalid': submitted && form.get('confirmPassword').errors }" name="confirmPassword" type="password" formControlName="confirmPassword">
+										<div *ngIf="submitted && form.get('confirmPassword').errors"
+										  	class="invalid-feedback"
+										>
+										  <div *ngIf="form.get('confirmPassword').errors['required']">
+											Confirm Password is required
+										  </div>
+										  <div *ngIf="form.get('confirmPassword').errors['matching']">
+											Confirm Password does not match
+										  </div>
+										</div>
+									  </div>
 	                                <div class="form-group">
 	                                	<label class="custom-check d-flex flex-wrap">
-	                                        <input type="checkbox">I agreed to all the <a data-bs-toggle="modal" data-bs-target="#terms"> Terms & Conditions,</a><a>Privacy Policy.</a>
+	                                        <input [ngClass]="{ 'is-invalid': submitted && form.get('acceptTerms').errors }"  type="checkbox" name="acceptTerms" formControlName="acceptTerms">I agreed to all the <a data-bs-toggle="modal" data-bs-target="#terms"> Terms & Conditions,</a><a>Privacy Policy.</a>
 	                                        <span class="checkmark"></span>
 	                                    </label>
 	                                </div>
@@ -56,7 +85,7 @@
 								</form>
 							</div>
 							<div class="back-btn-col text-center">
-								<a routerLink ="/chat/chat-main"><span><i class="fas fa-caret-left"></i></span> Back</a>
+								<a routerLink ="/chat/login-email"><span><i class="fas fa-caret-left"></i></span> Back</a>
 							</div>
 						</div>
 						<!-- /Login Tab Content -->

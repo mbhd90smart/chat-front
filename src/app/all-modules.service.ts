@@ -4,6 +4,7 @@ import { throwError, Observable } from 'rxjs';
 import { tap, catchError, map } from 'rxjs/operators';
 import { AllModulesData } from 'src/assets/all-modules-data/all-modules-data';
 import { id } from 'src/assets/all-modules-data/id';
+import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root',
 })
@@ -46,16 +47,43 @@ export class AllModulesService {
 
   // Get Method Api
   get(type): Observable<AllModulesData[]> {
-    this.apiurl = `api/${type}`;
+    this.apiurl = `${environment.api}/${type}`;
     return this.http.get<AllModulesData[]>(this.apiurl).pipe(
       tap((data) => console.log()),
       catchError(this.handleError)
     );
-  }
+}
 
+login(data:any): Observable<AllModulesData[]> {
+  this.apiurl = `${environment.api}/login`;
+  
+  return this.http.get<any>(this.apiurl, {
+    params:{
+      ...data,
+      securitycode:environment.securitycode
+    },
+    ...this.httpOptions
+    }).pipe(
+    tap((data) => console.log(data)),
+    catchError(this.handleError)
+  );
+}
+
+register(data:any): Observable<AllModulesData[]> {
+  this.apiurl = `${environment.api}/register`;
+  
+  return this.http.post<any>(this.apiurl, {
+    ...data,
+    securitycode:environment.securitycode
+  }, this.httpOptions).pipe(
+    tap((data) => console.log(data)),
+    catchError(this.handleError)
+  );
+}
+//environment
   // Post Method Api
   add(user: any, type): Observable<any> {
-    this.apiurl = `api/${type}`;
+    this.apiurl = `${environment.api}/${type}`;
     user.id = null;
     return this.http.post<any>(this.apiurl, user, this.httpOptions).pipe(
       tap((data) => console.log(data)),
@@ -65,7 +93,7 @@ export class AllModulesService {
 
   // Update Method Api
   update(user: any, type): Observable<any> {
-    this.apiurl = `api/${type}`;
+    this.apiurl = `${environment.api}/${type}`;
     const url = `${this.apiurl}/${user.id}`;
     return this.http.put<any>(url, user, this.httpOptions).pipe(
       map(() => user),
@@ -75,7 +103,7 @@ export class AllModulesService {
 
   // Delete Method Api
   delete(id: id, type): Observable<id> {
-    this.apiurl = `api/${type}`;
+    this.apiurl = `${environment.api}/${type}`;
     const url = `${this.apiurl}/${id}`;
     return this.http
       .delete<id>(url, this.httpOptions)

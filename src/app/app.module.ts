@@ -19,7 +19,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   imports: [
     BrowserModule,
     HttpClientModule,
-    HttpClientInMemoryWebApiModule.forRoot(AllModulesData),
+    //HttpClientInMemoryWebApiModule.forRoot(AllModulesData),
     AppRoutingModule,
     PerfectScrollbarModule
   ],

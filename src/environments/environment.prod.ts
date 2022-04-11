@@ -1,3 +1,5 @@
 export const environment = {
-  production: true
+  production: true,
+  securitycode:"",
+  api:"https://demo.smart-managers.online/"
 };

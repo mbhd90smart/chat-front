@@ -1,5 +1,6 @@
-import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 import { ChatRoutingModule } from './chat-routing.module';
 import { ChatComponent } from './chat.component';
@@ -34,6 +35,7 @@ import { UserDetailComponent } from './chat-main/user-details/user-details.compo
 import { UserDetailsModule } from './chat-main/user-details/user-details.module';
 import { ChatMainHeaderBarComponent } from './chat-main/header-bar/header-bar.component';
 import { ChatMainHeaderBarModule } from './chat-main/header-bar/header-bar.module';
+import { AuthGuard } from 'src/app/guards';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true,
@@ -66,10 +68,11 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     UserDetailComponent,
     ChatMainHeaderBarComponent
   ],
-  imports: [CommonModule, ChatRoutingModule, PerfectScrollbarModule, NgbModule,UserDetailsModule,ChatMainHeaderBarModule
+  imports: [CommonModule, ReactiveFormsModule, FormsModule, ChatRoutingModule, PerfectScrollbarModule, NgbModule,UserDetailsModule,ChatMainHeaderBarModule
     ],
   providers: [
     LinkService,
+    AuthGuard,
     {
       provide: PERFECT_SCROLLBAR_CONFIG,
       useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG,
