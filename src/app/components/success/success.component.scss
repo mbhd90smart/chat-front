@@ -1,0 +1,65 @@
+.mat-dialog-title {
+    font: 500 20px/32px Roboto,Helvetica Neue,sans-serif!important;
+    font-size: 24px!important;
+    letter-spacing: normal!important;
+    margin: 0 0 20px!important;
+    display: block!important;
+  }
+  .mat-dialog-content {
+    display: block!important;
+    margin: 0 -24px!important;
+    padding: 0 24px!important;
+    max-height: 65vh!important;
+    overflow: auto!important;
+    -webkit-overflow-scrolling: touch!important;
+  }
+  .mat-dialog-actions {
+    padding: 8px 0!important;
+    display: flex!important;
+    flex-wrap: wrap!important;
+    min-height: 52px!important;
+    align-items: center!important;
+    box-sizing: content-box!important;
+    margin-bottom: -24px!important;
+  }
+  .mat-button, .mat-icon-button, .mat-stroked-button, .mat-flat-button {
+    box-sizing: border-box!important;
+    position: relative!important;
+    -webkit-user-select: none!important;
+    -moz-user-select: none!important;
+    user-select: none!important;
+    cursor: pointer!important;
+    outline: none!important;
+    border: none!important;
+    -webkit-tap-highlight-color: transparent!important;
+    display: inline-block!important;
+    white-space: nowrap!important;
+    text-decoration: none!important;
+    vertical-align: baseline!important;
+    text-align: center!important;
+    margin: 0!important;
+    min-width: 64px!important;
+    line-height: 36px!important;
+    padding: 0 16px!important;
+    border-radius: 4px!important;
+    overflow: visible!important;
+  }
+  @keyframes spinner {
+    to {transform: rotate(360deg);}
+  }
+   
+  .spinner:before {
+    content: '';
+    box-sizing: border-box;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    margin-top: -10px;
+    margin-left: -10px;
+    border-radius: 50%;
+    border: 2px solid #ffffff;
+    border-top-color: #000000;
+    animation: spinner .8s linear infinite;
+  }

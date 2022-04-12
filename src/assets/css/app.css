@@ -3023,6 +3023,38 @@ ul.list-inline .list-inline-item {
 	border-color: #420BA1;
 }
 
+
+.newgroup_cancel {
+	padding: 10px 20px;
+	line-height: 1.6;
+	border-radius: .375rem;
+	background-color: #830a0a;
+	box-shadow: none;
+	border-color: #830a0a;
+	margin: 0px auto 15px;
+	color: #fff;
+	font-size: 14px;
+	text-align: center;
+	font-weight: 500;
+}
+
+.newgroup_cancel:hover {
+	background-color: #830a0a;
+	color: #fff;
+	border-color: #830a0a;
+	opacity: 0.9;
+}
+
+.newgroup_cancel:focus {
+	outline: 0;
+	box-shadow: none;
+}
+
+.newgroup_cancel.previous {
+	background-color: #a10b44;
+	border-color: #a10b44;
+}
+
 .newgroup_fa_search {
 	font-size: 15px;
 }
@@ -5223,6 +5255,29 @@ i.fas.fa-ellipsis-h.ellipse_header {
 
 .success-icon .close-icon {
 	background: #FF0000;
+}
+
+.failed-icon {
+	padding: 60px 0;
+}
+
+.failed-icon p {
+	font-weight: 500;
+	font-size: 16px;
+}
+
+.failed-icon i {
+	background: #FF0000;
+	color: #fff;
+	width: 45px;
+	height: 45px;
+	border-radius: 50%;
+	font-size: 20px;
+	line-height: 45px;
+}
+
+.failed-icon .close-icon {
+	background: #fff;
 }
 
 .close-modal span {

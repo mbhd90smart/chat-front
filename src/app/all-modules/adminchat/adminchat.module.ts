@@ -36,6 +36,10 @@ import { FormvalidationComponent } from './formvalidation/formvalidation.compone
 import { FormverticalComponent } from './formvertical/formvertical.component';
 import { TablesbasicComponent } from './tablesbasic/tablesbasic.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import {MatDialogModule} from "@angular/material/dialog";
+import { TranslateModule } from '@ngx-translate/core';
+import { MatCommonModule } from '@angular/material/core';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true,
@@ -72,7 +76,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     FormverticalComponent,
     TablesbasicComponent,
   ],
-  imports: [CommonModule, AdminchatRoutingModule, PerfectScrollbarModule, NgbModule],
+  imports: [MatCommonModule, MatDialogModule, TranslateModule.forChild(), CommonModule, ReactiveFormsModule, FormsModule, AdminchatRoutingModule, PerfectScrollbarModule, NgbModule],
   providers: [
     FunctioninvokeService,
     LinkService,

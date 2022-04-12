@@ -36,6 +36,9 @@ import { UserDetailsModule } from './chat-main/user-details/user-details.module'
 import { ChatMainHeaderBarComponent } from './chat-main/header-bar/header-bar.component';
 import { ChatMainHeaderBarModule } from './chat-main/header-bar/header-bar.module';
 import { AuthGuard } from 'src/app/guards';
+import {MatDialogModule} from "@angular/material/dialog";
+import { TranslateModule } from '@ngx-translate/core';
+import { MatCommonModule } from '@angular/material/core';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true,
@@ -68,7 +71,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     UserDetailComponent,
     ChatMainHeaderBarComponent
   ],
-  imports: [CommonModule, ReactiveFormsModule, FormsModule, ChatRoutingModule, PerfectScrollbarModule, NgbModule,UserDetailsModule,ChatMainHeaderBarModule
+  imports: [MatCommonModule, MatDialogModule, TranslateModule.forChild(), CommonModule, ReactiveFormsModule, FormsModule, ChatRoutingModule, PerfectScrollbarModule, NgbModule,UserDetailsModule,ChatMainHeaderBarModule
     ],
   providers: [
     LinkService,

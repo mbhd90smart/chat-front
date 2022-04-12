@@ -16,34 +16,31 @@
 							</div>
 							<div class="form-col">
 								<div class="login-text-details">
-									<h3>Log in</h3>
-									<p>Login with your Data that you entered during your Registration</p>
+									<h3>{{'log_in' | translate}}</h3>
+									<p>{{'login_with_data' | translate}}</p>
 								</div>
 								<form class="form" [formGroup]="form" (ngSubmit)="login()" name="form" #f="ngForm">
 	                                <div class="form-group">
-	                                    <label>Your Email</label>
+	                                    <label>{{'your_email' | translate}}</label>
 	                                    <input [ngClass]="{ 'is-invalid': submitted && form.get('username').invalid && form.get('username').errors }" class="form-control form-control-lg group_formcontrol" name="username" type="email" formControlName="username">
 										<div *ngIf="submitted && form.get('username').invalid && form.get('username').errors" class="invalid-feedback">
-											<div *ngIf="form.get('username').invalid && form.get('username').errors['required']">Email is required</div>
-											<div *ngIf="form.get('username').invalid && form.get('username').errors['email']">Email is invalid</div>
+											<div *ngIf="form.get('username').invalid && form.get('username').errors['required']">{{'email_required' | translate}}</div>
+											<div *ngIf="form.get('username').invalid && form.get('username').errors['email']">{{'email_invalid_format' | translate}}</div>
 										</div>
 									</div>
 	                                <div class="form-group">
-	                                    <label>Password</label>
+	                                    <label>{{'password' | translate}}</label>
 	                                    <input [ngClass]="{ 'is-invalid': submitted && form.get('password').invalid && form.get('password').errors }" class="form-control form-control-lg group_formcontrol" name="password" type="password" formControlName="password">
 										<div *ngIf="submitted && form.get('password').invalid && form.get('password').errors" class="invalid-feedback">
-											<div *ngIf="form.get('password').invalid && form.get('password').errors['required']">Password is required</div>
+											<div *ngIf="form.get('password').invalid && form.get('password').errors['required']">{{'password_required' | translate}}</div>
 											<div *ngIf="form.get('password').invalid && form.get('password').errors['minlength']">
-											  Password must be at least 6 characters
-											</div>
-											<div *ngIf="form.get('password').invalid && form.get('password').errors['maxlength']">
-											  Username must not exceed 40 characters
+												{{'passord_min_length' | translate}}
 											</div>
 										</div>
 									</div>
 	                                <div class="form-group">
 	                                	<label class="custom-check d-flex">
-	                                        <input type="checkbox">Keep me logged in
+	                                        <input type="checkbox">{{'keep_logged' | translate}}
 	                                        <span class="checkmark"></span>
 	        
 	                                    </label>
@@ -53,14 +50,14 @@
 										  <mat-progress-bar  mode="indeterminate"></mat-progress-bar>
 										</div>
 	                                	<div class="text-center">
-	                                     	<button class="btn newgroup_create w-100 d-block w-100" [class.spinner]="loading" [disabled]="loading" type="submit">Login</button>
+	                                     	<button class="btn newgroup_create w-100 d-block w-100" [class.spinner]="loading" [disabled]="loading" type="submit">{{'login' | translate}}</button>
 	                                    </div>
 	                                </div>
 								
-								<div class="text-center dont-have">Don’t have an account? <a routerLink ="/chat/signup-email">Signup</a></div>
+								<div class="text-center dont-have">{{'dont_account' | translate}} <a routerLink ="/chat/signup-email">{{'signup' | translate}}</a></div>
 								<div class="text-center mt-3">
 									<span class="forgot-link">
-										<a routerLink ="/chat/forgotpassword-email" class="text-end">Forgot Password ?</a>
+										<a routerLink ="/chat/forgotpassword-email" class="text-end">{{'forgot_Password' | translate}}</a>
 									</span>
 								</div>
 								</form>

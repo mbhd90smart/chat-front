@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 // import * as $ from 'jquery';
 import { Router, Event, NavigationEnd } from '@angular/router';
 import { LinkService } from './link.service';
-
+import {TranslateService} from "@ngx-translate/core";
 declare const $: any;
 
 @Component({
@@ -15,7 +15,9 @@ export class AppComponent implements OnInit {
   url1;
   activeRoute: string;
   active2Route;
-  constructor(private router: Router, private link: LinkService) {
+  constructor(private router: Router, private link: LinkService, private translate: TranslateService) {
+    const lan = this.getUsersLocale("fr");
+    translate.setDefaultLang(lan === 'fr'?'fr': "en");
     this.router.events.subscribe((event: Event) => {
       if (event instanceof NavigationEnd) {
         const url = event.url.split('/');
@@ -32,6 +34,16 @@ export class AppComponent implements OnInit {
     if (this.url === 'chat') {
       this.link.createChatLink();
     }
+  }
+
+  getUsersLocale(defaultValue: string): string {
+    if (typeof window === 'undefined' || typeof window.navigator === 'undefined') {
+      return defaultValue;
+    }
+    const wn = window.navigator as any;
+    let lang = wn.languages ? wn.languages[0] : defaultValue;
+    lang = lang || wn.language || wn.browserLanguage || wn.userLanguage;
+    return lang;
   }
 
   ngOnInit(): void {

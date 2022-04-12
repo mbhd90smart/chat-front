@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
+import { AllModulesService } from 'src/app/all-modules.service';
+import { TokenStorageService } from 'src/app/services';
 declare const $: any;
 @Component({
   selector: 'app-group',
@@ -7,13 +11,18 @@ declare const $: any;
 })
 export class GroupComponent implements OnInit {
 
-  constructor() { }
+  constructor(private translate:TranslateService, protected tokenManager:TokenStorageService, protected readonly allModulesService: AllModulesService, private route: Router, private activeRoute: ActivatedRoute) { }
+
+  async logout(){
+    await this.tokenManager.signOut();
+    this.route.navigateByUrl("/chat/login-email");
+  }
 
   ngOnInit(): void {
    var $slimScrolls = $('.slimscroll');
 
     // Sidebar Slimscroll
-
+  
   if($slimScrolls.length > 0) {
     $slimScrolls.slimScroll({
       height: 'auto',

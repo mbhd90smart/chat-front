@@ -54,7 +54,37 @@ export class AllModulesService {
     );
 }
 
-login(data:any): Observable<AllModulesData[]> {
+recovery(data:any): Observable<any> {
+  this.apiurl = `${environment.api}/recovery`;
+  
+  return this.http.get<any>(this.apiurl, {
+    params:{
+      ...data,
+      securitycode:environment.securitycode
+    },
+    ...this.httpOptions
+    }).pipe(
+    tap((data) => console.log(data)),
+    catchError(this.handleError)
+  );
+}
+
+passcode(data:any): Observable<any> {
+  this.apiurl = `${environment.api}/password`;
+  
+  return this.http.get<any>(this.apiurl, {
+    params:{
+      ...data,
+      securitycode:environment.securitycode
+    },
+    ...this.httpOptions
+    }).pipe(
+    tap((data) => console.log(data)),
+    catchError(this.handleError)
+  );
+}
+
+login(data:any): Observable<any> {
   this.apiurl = `${environment.api}/login`;
   
   return this.http.get<any>(this.apiurl, {
@@ -69,7 +99,7 @@ login(data:any): Observable<AllModulesData[]> {
   );
 }
 
-register(data:any): Observable<AllModulesData[]> {
+register(data:any): Observable<any> {
   this.apiurl = `${environment.api}/register`;
   
   return this.http.post<any>(this.apiurl, {

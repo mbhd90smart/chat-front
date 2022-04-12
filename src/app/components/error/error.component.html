@@ -1,0 +1,10 @@
+<mat-dialog-content>
+    <div class="failed-icon text-center">
+        <i class="fas fa-exclamation-triangle mb-3"></i>
+        <p>{{message}}</p>
+    </div>
+</mat-dialog-content>
+
+<mat-dialog-actions class="text-right">
+    <button class="btn newgroup_create"(click)="close()">{{button??('ok' | translate)}}</button>
+</mat-dialog-actions>

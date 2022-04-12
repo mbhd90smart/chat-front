@@ -7,15 +7,22 @@
                     <h1>Login</h1>
                     <p class="account-subtitle">Access to our dashboard</p>							
                     <!-- Form -->
-                    <form>
+                    <form class="form" [formGroup]="form" (ngSubmit)="login()" name="form" #f="ngForm">
                         <div class="form-group">
-                            <input class="form-control" type="text" placeholder="Email">
+                            <input [ngClass]="{ 'is-invalid': submitted && form.get('username').invalid && form.get('username').errors }" class="form-control" type="text" placeholder="Email">
+                            <div *ngIf="submitted && form.get('username').invalid && form.get('username').errors" class="invalid-feedback">
+                                <div *ngIf="form.get('username').invalid && form.get('username').errors['required']">Email is required</div>
+                                <div *ngIf="form.get('username').invalid && form.get('username').errors['email']">Email is invalid</div>
+                            </div>
                         </div>
                         <div class="form-group">
-                            <input class="form-control" type="text" placeholder="Password">
+                            <input  [ngClass]="{ 'is-invalid': submitted && form.get('password').invalid && form.get('password').errors }"  class="form-control" type="text" placeholder="Password">
+                            <div *ngIf="submitted && form.get('password').invalid && form.get('password').errors" class="invalid-feedback">
+                                <div *ngIf="form.get('password').invalid && form.get('password').errors['required']">Password is required</div>
+                            </div>
                         </div>
                         <div class="form-group">
-                            <button class="btn btn-primary w-100" type="button" (click)= "firstComponentFunction()"routerLink = "/admin/dashboard">Login</button>
+                            <button class="btn btn-primary w-100" type="submit">Login</button>
                         </div>
                     </form>
                     <!-- /Form -->
